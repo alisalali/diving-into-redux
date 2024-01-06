@@ -1,8 +1,39 @@
-import { createStore } from "redux";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initialState = { counter: 0, showCounter: true };
 
-const counterReducer = (state = initialState, action) => {
+// Initialize the redux slice state
+const counterSlice = createSlice({
+  name: "counter", // Name of the slice state
+  initialState, // Initial state
+  reducers: {
+    // List of reducers
+    increment(state) {
+      state.counter++;
+    },
+    decrement(state) {
+      state.counter--;
+    },
+    increase(state, action) {
+      state.counter = state.counter + action.amount;
+    },
+    toggle(state) {
+      state.showCounter = !state.showCounter;
+    },
+  },
+});
+
+// configureStore can combine multiple reducers into one store
+/* configureStore({reducer: { 
+    counter: counterSlice.reducer,
+  }, });
+  */
+
+const store = configureStore({
+  reducer: counterSlice.reducer,
+});
+
+/* const counterReducer = (state = initialState, action) => {
   if (action.type === "increment") {
     return {
       counter: state.counter + 1,
@@ -28,10 +59,7 @@ const counterReducer = (state = initialState, action) => {
     };
   }
   return state;
-};
-
-const store = createStore(counterReducer);
-
+}; */
 // const subscriberStore = () => {
 //   const latestSate = store.getState();
 //   console.log(latestSate);

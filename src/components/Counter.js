@@ -19,7 +19,7 @@ const Counter = () => {
     []
   );
   const increaseHandler = useCallback(
-    () => dispatch({ type: "increase", amount: 10 }),
+    () => dispatch({ type: "increase", amount: 10 }), // dispatch increase action with payload
     []
   );
   const toggleCounterHandler = () => {
