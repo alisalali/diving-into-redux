@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useCallback } from "react";
 
-import { counterActions } from "../store/index"; // import actions from store
+import { counterActions } from "../store/counter"; // import actions from store
 
 import classes from "./Counter.module.css";
 
