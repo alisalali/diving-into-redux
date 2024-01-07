@@ -7,8 +7,8 @@ import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch(); // initialize dispatch function
-  const counter = useSelector((state) => state.counter); // to read store state object
-  const show = useSelector((state) => state.showCounter); // to read store state object
+  const counter = useSelector((state) => state.counter.counter); // to read store state object
+  const show = useSelector((state) => state.counter.showCounter); // to read store state object
 
   const incrementHandler = useCallback(
     () => dispatch(counterActions.increment()),
